@@ -5,13 +5,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Horse Health Prediction</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
 <body>
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #2f2fa2;
+    font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+    text-align: center;
+    color: #ffffff;
+    margin-top: 10px;
+}
+
+input {
+    width: 50%;
+    height: 5vh;
+    border: 2px solid white;
+    border-radius: 20px;
+    text-align: center;
+    color: #ffffff;
+    font-size: 25px;
+}
+
+.input-box {
+    color: #ffffff;
+    font-size: 30px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+button {
+    width: 10%;
+    padding: 5px;
+    border: none;
+    background-color: #f64c72 ;
+    text-align: center;
+    color: #ffffff;
+    font-size: 20px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    cursor: pointer;
+}
+
+.submit-btn {
+    text-align: center;
+}
+
+.result {
+    color: aqua;
+}
+    </style>
     <h1>Horse Health Prediction</h1>
     <form action="" method="POST" id="input_data">
         {% csrf_token %}
