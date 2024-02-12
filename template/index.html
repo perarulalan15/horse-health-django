@@ -1,0 +1,152 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horse Health Prediction</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+    <h1>Horse Health Prediction</h1>
+    <form action="" method="POST" id="input_data">
+        {% csrf_token %}
+        <div class="input-box">
+            <label for="surgery">Surgery</label><br>
+            <input type="number" name="surgery" step="any" required>
+        </div>
+        <div class="input-box">
+            <label for="Age">Age</label><br>
+            <input type="number" step="any" name="Age" required>
+        </div>
+        <div class="input-box">
+            <label for="Rectal Temperature">Rectal Temperature</label><br>
+            <input type="number" step="any" name="Rectal_Temperature" required>
+        </div>
+        <div class="input-box">
+            <label for="Pulse">Pulse</label><br>
+            <input type="number" step="any" name="Pulse" required>
+        </div>
+        <div class="input-box">
+            <label for="Respiratory Rate">Respiratory Rate</label><br>
+            <input type="number" step="any" name="Respiratory_Rate" required>
+        </div>
+        <div class="input-box">
+            <label for="Temperature Of Extremities">Temperature Of Extremities</label><br>
+            <input type="number" step="any" name="Temperature_Of_Extremities" required>
+        </div>
+        <div class="input-box">
+            <label for="Peripheral Pulse">Peripheral Pulse</label><br>
+            <input type="number" step="any" name="Peripheral_Pulse" required>
+        </div>
+        <div class="input-box">
+            <label for="Mucous Membrane">Mucous Membrane</label><br>
+            <input type="number" step="any" name="Mucous_Membrane" required>
+        </div>
+        <div class="input-box">
+            <label for="Capillary Refill Time">Capillary Refill Time</label><br>
+            <input type="number" step="any" name="Capillary_Refill_Time" required>
+        </div>
+        <div class="input-box">
+            <label for="Pain">Pain</label><br>
+            <input type="number" step="any" name="Pain" required>
+        </div>
+        <div class="input-box">
+            <label for="Peristalsis">Peristalsis</label><br>
+            <input type="number" step="any" name="Peristalsis" required>
+        </div>
+        <div class="input-box">
+            <label for="Abdominal Distention">Abdominal Distention</label><br>
+            <input type="number" step="any" name="Abdominal_Distention" required>
+        </div>
+        <div class="input-box">
+            <label for="Nasogastric Tube">Nasogastric Tube</label><br>
+            <input type="number" step="any" name="Nasogastric_Tube" required>
+        </div>
+        <div class="input-box">
+            <label for="Nasogastric Reflux">Nasogastric Reflux</label><br>
+            <input type="number" step="any" name="Nasogastric_Reflux" required>
+        </div>
+        <div class="input-box">
+            <label for="Nasogastric Reflux Ph">Nasogastric Reflux Ph</label><br>
+            <input type="number" step="any" name="Nasogastric_Reflux_Ph" required>
+        </div>
+        <div class="input-box">
+            <label for="Rectal Exam Feces">Rectal Exam Feces</label><br>
+            <input type="number" step="any" name="Rectal_Exam_Feces" required>
+        </div>
+        <div class="input-box">
+            <label for="Abdomen">Abdomen</label><br>
+            <input type="number" step="any" name="Abdomen" required>
+        </div>
+        <div class="input-box">
+            <label for="Packed Cell Volume">Packed Cell Volume</label><br>
+            <input type="number" step="any" name="Packed_Cell_Volume" required>
+        </div>
+        <div class="input-box">
+            <label for="Total Protein">Total Protein</label><br>
+            <input type="number" step="any" name="Total_Protein" required>
+        </div>
+        <div class="input-box">
+            <label for="Abdomen Appearance">Abdomen Appearance</label><br>
+            <input type="number" step="any" name="Abdomen_Appearance" required>
+        </div>
+        <div class="input-box">
+            <label for="Abdomen Protein">Abdomen Protein</label><br>
+            <input type="number" step="any" name="Abdomen_Protein" required>
+        </div>
+        <div class="input-box">
+            <label for="Surgical Lesion">Surgical Lesion</label><br>
+            <input type="number" step="any" name="Surgical_Lesion" required>
+        </div>
+        <div class="input-box">
+            <label for="Lesion 1">Lesion 1</label><br>
+            <input type="number" step="any" name="Lesion_1" required>
+        </div>
+        <div class="input-box">
+            <label for="Lesion 2">Lesion 2</label><br>
+            <input type="number" step="any" name="Lesion_2" required>
+        </div>
+        <div class="input-box">
+            <label for="Lesion 3">Lesion 3</label><br>
+            <input type="number" step="any" name="Lesion_3" required>
+        </div>
+        <div class="input-box">
+            <label for="CP Data">CP Data</label><br>
+            <input type="number" step="any" name="CP_Data" required>
+        </div>
+        <div class="submit-btn">
+            <button type="submit" onclick="submitForm()">Submit</button>
+        </div>
+        {% if submit %}
+            <h2 style="width: 50%; margin: auto; text-align: center; background-color: #5cdb95; color: #ffff; padding: 10px; border-radius: 30px; margin-bottom: 15px;">{{submit}}</h2>
+        {% endif %}
+    </form>
+
+
+    <script>
+        function submitForm(event) {
+            var formData = $('#input_data').serialize();
+    
+            $.ajax({
+                type: 'POST',
+                url: '',
+                data: formData,
+                success: function(response) {
+                    $('#input_data').html(response);
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+            });
+    
+            // Prevent the default form submission behavior
+            event.preventDefault();
+        }
+    </script>    
+</body>
+</html>
